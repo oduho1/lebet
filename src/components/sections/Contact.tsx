@@ -29,7 +29,8 @@ const Contact = () => {
     setSubmitMessage(null);
 
     try {
-      const response = await axios.post('http://localhost:4000/contact', formData, {
+      // ✅ Use your deployed backend URL instead of localhost
+      const response = await axios.post('https://lebet-backend.vercel.app/contact', formData, {
         headers: { 'Content-Type': 'application/json' },
       });
 
