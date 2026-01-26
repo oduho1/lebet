@@ -37,25 +37,28 @@ const Contact: React.FC = () => {
     setSubmitMessage(null);
 
     try {
-      // Replace with your deployed backend URL or localhost for testing
+      // Backend URL
       const response = await axios.post(
-        'https://lebet-backend.vercel.app/contact',
+        'https://lebet-backend.vercel.app/contact', // replace with your backend
         formData,
         { headers: { 'Content-Type': 'application/json' } }
       );
 
-      setSubmitMessage({ type: 'success', text: response.data.message });
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      // The backend now returns { success: true, message: "...", form: {...} }
+      if (response.data.success) {
+        setSubmitMessage({ type: 'success', text: response.data.message });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitMessage({ type: 'error', text: response.data.message });
+      }
 
-      // Clear success message after 5 seconds
+      // Clear message after 5 seconds
       setTimeout(() => setSubmitMessage(null), 5000);
-
     } catch (error: any) {
       setSubmitMessage({
         type: 'error',
         text: error.response?.data?.message || 'Failed to send message',
       });
-
       setTimeout(() => setSubmitMessage(null), 5000);
     } finally {
       setIsSubmitting(false);
