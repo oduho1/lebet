@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface SubmitMessage {
+  type: 'success' | 'error';
+  text: string;
+}
+
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
@@ -10,10 +22,7 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState<{
-    type: 'success' | 'error';
-    text: string;
-  } | null>(null);
+  const [submitMessage, setSubmitMessage] = useState<SubmitMessage | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,47 +31,47 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // 🔥 Submit using Axios
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitMessage(null);
 
     try {
-      // ✅ Use your deployed backend URL instead of localhost
-      const response = await axios.post('https://lebet-backend.vercel.app/contact', formData, {
-        headers: { 'Content-Type': 'application/json' },
-      });
+      // Replace with your deployed backend URL or localhost for testing
+      const response = await axios.post(
+        'https://lebet-backend.vercel.app/contact',
+        formData,
+        { headers: { 'Content-Type': 'application/json' } }
+      );
 
-      setSubmitMessage({
-        type: 'success',
-        text: response.data.message,
-      });
-
+      setSubmitMessage({ type: 'success', text: response.data.message });
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error: any) {
-      const errorMessage =
-        error.response?.data?.message || 'Failed to send message';
 
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmitMessage(null), 5000);
+
+    } catch (error: any) {
       setSubmitMessage({
         type: 'error',
-        text: errorMessage,
+        text: error.response?.data?.message || 'Failed to send message',
       });
+
+      setTimeout(() => setSubmitMessage(null), 5000);
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitMessage(null), 5000);
     }
   };
 
   const contactItems = [
     { icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', title: 'Email', info: 'albanooduho@gmail.com', bg: 'bg-blue-50', iconColor: 'text-blue-600' },
     { icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', title: 'Phone', info: '+254727609518', bg: 'bg-green-50', iconColor: 'text-green-600' },
-    { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', title: 'Location', info: 'kakuma Refuge camp, Creative City', bg: 'bg-yellow-50', iconColor: 'text-yellow-600' },
+    { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', title: 'Location', info: 'Kakuma Refugee Camp, Creative City', bg: 'bg-yellow-50', iconColor: 'text-yellow-600' },
   ];
 
   return (
     <section id="contact" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
+
         {/* Header */}
         <div className="text-center mb-16">
           <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-medium inline-block mb-3">Contact</span>
@@ -89,7 +98,7 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Form */}
+          {/* Contact Form */}
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h3 className="text-2xl font-semibold mb-6">Send Me a Message</h3>
 
