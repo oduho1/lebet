@@ -15,37 +15,37 @@ type Testimonial = {
 const TESTIMONIALS: Testimonial[] = [
   {
     id: "t1",
-    name: "Emmanuel sebit",
-    role: "Brand Manager and Art, kakuma Refugee camp.",
+    name: "Emmanuel Sebit",
+    role: "Product Manager, Kakuma Tech Hub",
     quote:
-      "Their design instincts are stellar. We saw engagement jump within weeks.",
+      "The system was delivered cleanly, on time, and scaled without issues. Performance and reliability exceeded expectations.",
     rating: 5,
     avatar: image1,
   },
   {
     id: "t2",
-    name: "Emmanuel obura",
-    role: "Founder, Verde Studio",
+    name: "Emmanuel Obura",
+    role: "Founder & CTO, Verde Studio",
     quote:
-      "Fast, collaborative, and pixel‑perfect. Couldn’t have shipped without them.",
+      "Strong full-stack skills. From API design to frontend delivery, everything was well-structured and production-ready.",
     rating: 5,
     avatar: image2,
   },
   {
     id: "t3",
-    name: "Alfred taban",
-    role: "Marketing Lead, canada",
+    name: "Alfred Taban",
+    role: "Technical Lead, Canada",
     quote:
-      "A rare mix of creativity and engineering. The site feels premium and fast.",
+      "A rare blend of solid engineering and clean architecture. The application is fast, secure, and easy to maintain.",
     rating: 4,
     avatar: image3,
   },
   {
     id: "t4",
     name: "Addicted",
-    role: "Product Owner and digital marketing, Waveform",
+    role: "Product Owner, Waveform",
     quote:
-      "Clear communication, strong UX sense, and timely delivery. Highly recommended.",
+      "Clear communication, strong problem-solving skills, and consistent delivery. A reliable engineer you can trust.",
     rating: 5,
     avatar: image4,
   },
@@ -73,13 +73,13 @@ const Testimonials = () => {
       <div className="container mx-auto px-5 md:px-8">
         <div className="max-w-2xl mx-auto text-center mb-12">
           <span className="inline-block text-sm font-semibold text-blue-600 tracking-wide mb-2">
-            What clients say
+            Testimonials
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Trusted by brands and teams
+            Trusted by product teams & founders
           </h2>
           <p className="text-gray-600 mt-3">
-            Real feedback from recent collaborations across web, brand, and product.
+            Feedback from engineers, founders, and product managers I’ve worked with.
           </p>
         </div>
 
@@ -96,18 +96,25 @@ const Testimonials = () => {
                   className="h-12 w-12 rounded-full object-cover border border-gray-200"
                 />
                 <div>
-                  <p className="font-semibold text-gray-900 leading-tight">{t.name}</p>
+                  <p className="font-semibold text-gray-900 leading-tight">
+                    {t.name}
+                  </p>
                   <p className="text-sm text-gray-500">{t.role}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-0.5 mt-4" aria-label={`Rating: ${t.rating} out of 5`}>
+              <div
+                className="flex items-center gap-0.5 mt-4"
+                aria-label={`Rating: ${t.rating} out of 5`}
+              >
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} filled={i < t.rating} />
                 ))}
               </div>
 
-              <p className="mt-4 text-gray-700 leading-relaxed">“{t.quote}”</p>
+              <p className="mt-4 text-gray-700 leading-relaxed">
+                “{t.quote}”
+              </p>
             </article>
           ))}
         </div>
@@ -117,6 +124,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-
-
-

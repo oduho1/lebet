@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import heroImage from "../../assets/photoroom.png";
@@ -27,34 +26,33 @@ const Hero = () => {
           >
             <div className="inline-block backdrop-blur-md bg-white/40 px-4 py-2 rounded-full shadow-sm mb-6">
               <span className="text-blue-600 font-semibold text-sm">
-                Graphic Designer & Developer
+                Full-Stack Developer & Software Engineer
               </span>
             </div>
 
             {/* Animated Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-              Creative{" "}
+              Building{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
                 <TypeAnimation
                   sequence={[
-                    "Web Design", 2000,
-                    "Branding", 2000,
-                    "Illustrations", 2000,
-                    "Animations", 2000,
-                    "Web Development", 2000,
+                    "Scalable Web Apps", 2000,
+                    "Backend Systems", 2000,
+                    "APIs & Microservices", 2000,
+                    "Modern Frontends", 2000,
+                    "End-to-End Solutions", 2000,
                   ]}
                   wrapper="span"
                   speed={50}
                   repeat={Infinity}
                 />
-              </span>{" "}
-              Solutions for Your Brand
+              </span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed">
               Hi, I'm <span className="font-semibold text-gray-800">Oduho Ohisa</span>.  
-              I design & build meaningful experiences that help brands connect with
-              their audience and achieve real business goals.
+              I design, build, and scale full-stack applications with clean code,
+              solid architecture, and real-world performance in mind.
             </p>
 
             {/* Call-to-action buttons */}
@@ -70,7 +68,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View My Work
+                View Projects
               </motion.a>
 
               <motion.a
@@ -79,7 +77,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Contact Me
+                Let’s Build Something
               </motion.a>
             </motion.div>
           </motion.div>
@@ -97,7 +95,7 @@ const Hero = () => {
 
               <img
                 src={heroImage}
-                alt="Creative workspace"
+                alt="Software developer workspace"
                 className="relative z-10 rounded-3xl shadow-2xl w-full max-w-md md:max-w-lg border border-gray-200"
               />
             </div>
@@ -109,4 +107,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

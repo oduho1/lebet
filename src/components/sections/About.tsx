@@ -15,7 +15,7 @@ const About = () => {
           <div className="w-16 sm:w-20 h-1 bg-blue-600 mx-auto"></div>
         </div>
 
-        {/* Flex Layout (Stacked on mobile, side by side on larger screens) */}
+        {/* Flex Layout */}
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Image Section */}
           <div className="w-full sm:w-4/5 md:w-3/5 lg:w-2/5 mx-auto">
@@ -23,7 +23,7 @@ const About = () => {
               <div className="absolute inset-0 bg-blue-600 rounded-lg transform translate-x-3 translate-y-3 sm:translate-x-4 sm:translate-y-4"></div>
               <img
                 src={myImage}
-                alt="Portrait of Oduho Ohisa, Graphic Designer"
+                alt="Portrait of Oduho Ohisa, Full-Stack Developer"
                 className="relative z-10 rounded-lg w-full h-auto object-cover shadow-lg border border-white"
               />
             </div>
@@ -35,19 +35,21 @@ const About = () => {
               Oduho Ohisa
             </h3>
             <h4 className="text-lg sm:text-xl text-blue-600 mb-4 sm:mb-6">
-              Graphic Designer & Visual Artist
+              Full-Stack Developer & Software Engineer
             </h4>
+
             <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-              I have been a graphic designer for more than 3 years. I help
-              brands get noticed by creating their look. I make things like:
-              Logos and printed items, Graphics for websites and social media,
-              Website designs, Animations.
+              I’m a full-stack developer with over 3 years of experience building
+              scalable, secure, and high-performance web applications. I work
+              across the entire stack — from modern frontend interfaces to
+              robust backend systems and cloud deployments.
             </p>
+
             <p className="text-gray-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-              I've had the pleasure of working with clients across various
-              industries, from startups to established corporations. My approach
-              involves deep collaboration, understanding the client's vision,
-              and translating it into compelling visual stories.
+              I’ve worked with startups, founders, and product teams to turn
+              ideas into reliable software. My approach focuses on clean code,
+              thoughtful architecture, and solutions that solve real business
+              problems.
             </p>
 
             {/* Grid Cards */}
@@ -78,10 +80,14 @@ const About = () => {
                 </h5>
                 <ul className="text-gray-600 space-y-2 ml-7 text-sm sm:text-base">
                   <li className="list-disc">
-                    UI/UX Design in Graphic Design, Design Academy
+                    Software Engineering & Web Development
                   </li>
-                  <li className="list-disc">Raspberry Pi Foundation</li>
-                  <li className="list-disc">Certificate in Visual Arts</li>
+                  <li className="list-disc">
+                    Computer Science Fundamentals (Raspberry Pi Foundation)
+                  </li>
+                  <li className="list-disc">
+                    Cloud & Backend Development Certifications
+                  </li>
                 </ul>
               </div>
 
@@ -105,10 +111,14 @@ const About = () => {
                 </h5>
                 <ul className="text-gray-600 space-y-2 ml-7 text-sm sm:text-base">
                   <li className="list-disc">
-                    Senior Designer, Creative Studio
+                    Full-Stack Developer
                   </li>
-                  <li className="list-disc">Animation Creator, Design Agency</li>
-                  <li className="list-disc">Freelance Designer</li>
+                  <li className="list-disc">
+                    Backend Engineer, API & Database Systems
+                  </li>
+                  <li className="list-disc">
+                    Web Design
+                  </li>
                 </ul>
               </div>
             </div>
@@ -120,4 +130,3 @@ const About = () => {
 };
 
 export default About;
-
